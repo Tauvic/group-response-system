@@ -24,7 +24,6 @@
   <script>
     var video, canvas, context, imageData, detector;
 
-    
     function onLoad(){
       video = document.getElementById("video");
       canvas = document.getElementById("canvas");
@@ -67,6 +66,8 @@
 
           canvas.width  = vs.width;
           canvas.height = vs.height;
+
+          document.getElementById("res").innerHTML= "w=" + canvas.width + ",h=" + canvas.height
 
           if ("srcObject" in video) {
             video.srcObject = stream;
@@ -194,6 +195,7 @@
 
   <center>
     <div style="margin: 10px;"><strong>-= Classroom Response System =-</strong></div>
+    <div id="res"></div>
     <video id="video" autoplay="true" style="display:none;"></video>
     <canvas id="canvas" style="width:640px; height:480px;"></canvas>
     <div id="result" class="list">results</div>
