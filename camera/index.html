@@ -68,10 +68,10 @@
           video.width  = vs.width;
           video.height = vs.height; 
 
-          canvas.width  = (vs.height / 640) * vs.width;
-          //canvas.height = vs.height;
+          canvas.width  = (640 / vs.height) * vs.width;
+          canvas.height = 640;
 
-          document.getElementById("res").innerHTML= "w=" + canvas.width + ",h=" + canvas.height
+          document.getElementById("res").innerHTML= "w=" + vs.width + ",h=" + vs.height + "(" + canvas.width  + "," + canvas.height +")" 
 
           if ("srcObject" in video) {
             video.srcObject = stream;
