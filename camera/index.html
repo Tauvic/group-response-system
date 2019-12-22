@@ -58,6 +58,16 @@
            }
           })
         .then(function(stream) {
+          
+          var vs = stream.getTracks()[0].getSettings()
+          console.info('width='+vs.width);
+
+          //video.width  = stream.width;
+          //video.height = stream.height; 
+
+          canvas.width  = vs.width;
+          canvas.height = vs.height;
+
           if ("srcObject" in video) {
             video.srcObject = stream;
           } else {
@@ -160,7 +170,7 @@
         var row = document.createElement("tr");
         var cell = document.createElement("td");
         var cellText = document.createTextNode(markers[i].id + 
-            ",h=" + (corners[0].x - corners[1].x) +  
+            ",h=" + (corners[1].x - corners[0].x) +  
             ",angle=" + calcAngle(corners[0].x,corners[1].x,corners[0].y,corners[1].y));
 
         cell.appendChild(cellText);
