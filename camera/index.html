@@ -68,8 +68,8 @@
           video.width  = vs.width;
           video.height = vs.height; 
 
-          canvas.width  = vs.width;
-          canvas.height = vs.height;
+          canvas.width  = (vs.height / 640) * vs.width;
+          //canvas.height = vs.height;
 
           document.getElementById("res").innerHTML= "w=" + canvas.width + ",h=" + canvas.height
 
@@ -201,7 +201,7 @@
     <div style="margin: 10px;"><strong>-= Classroom Response System =-</strong></div>
     <div id="res"></div>
     <video id="video" autoplay="true" style="display:none;"></video>
-    <canvas id="canvas" style="display:none;"></canvas>
+    <canvas id="canvas" style="height:640px;"></canvas>
     <div id="result" class="list">results</div>
   </center>
 
