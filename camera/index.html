@@ -89,9 +89,14 @@
       requestAnimationFrame(tick);
     }
     
+    var ticked = 0
+
     function tick(){
 
-      //requestAnimationFrame(tick);
+      requestAnimationFrame(tick);
+      ticked = ticked + 1;
+      if (ticked < 10) return;
+      ticked = 0;
       
       if (video.readyState === video.HAVE_ENOUGH_DATA){
         snapshot();
@@ -101,7 +106,6 @@
         drawId(markers);
       }
 
-      requestAnimationFrame(tick);
 
     }
 
