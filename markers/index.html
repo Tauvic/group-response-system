@@ -20,24 +20,33 @@
         <script type="text/javascript" src="markers.js"></script>
         <script type="text/javascript"> 
             window.onload = function(){
+
+                var params = (new URL(document.location)).searchParams;
+
+                var marker_size = params.get('size') 
+                marker_size = (marker_size) ? parseInt(marker_size) : 160;
+
+                var marker_count = params.get('count')
+                marker_count = (marker_count) ? parseInt(marker_count) : 5;
+
                 var div = document.getElementById("markers");
-                var detector =  new AR.Detector();
-                // 160
-                var width=160, height=160,pad=15;
+                var detector = new AR.Detector();
+                var pad=15;
+
+                //marker_size = 100
+                marker_counr =10
 
                 var i=0;
-                var limit = Math.pow(4,5);
+                var limit = Math.min(marker_count,Math.pow(4,5));
 
                 var hash = location.hash.replace("#",'');
                 if(hash.length >= 1) {
                     i=parseInt(hash);
                     limit=parseInt(hash)+1;
                 }
-                
-                limit=3
 
                 while(i<limit) {
-                    var canvas  = makeMarker(i,width,height);
+                    var canvas  = makeMarker(i,marker_size,marker_size);
                     var ctx = canvas.getContext('2d');
                     var markers = detector.detect(ctx.getImageData(0,0,canvas.width,canvas.height));
                     ctx.font = "bold 10px sans-serif";
