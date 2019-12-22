@@ -50,12 +50,14 @@
         }
       }
       
+      // 3840 x 2160 pixels , 1280/720
+
       navigator.mediaDevices
         .getUserMedia({ audio:false,
            video: {
              facingMode: "environment",
-             width: { min: 640, ideal: 1280, max: 1920 },
-             height: { min: 480, ideal: 720, max: 1080 }
+             width: { min: 640, ideal: 3840, max: 3840 },
+             height: { min: 480, ideal: 2160, max: 2160 }
            }
           })
         .then(function(stream) {
