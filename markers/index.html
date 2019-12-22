@@ -31,7 +31,7 @@
 
                 var div = document.getElementById("markers");
                 var detector = new AR.Detector();
-                var pad=15;
+                var pad=60;
 
                 //marker_size = 100
                 marker_counr =10
@@ -46,7 +46,7 @@
                 }
 
                 while(i<limit) {
-                    var canvas  = makeMarker(i,marker_size,marker_size);
+                    var canvas  = makeMarker(i,marker_size,marker_size,60);
                     var ctx = canvas.getContext('2d');
                     var markers = detector.detect(ctx.getImageData(0,0,canvas.width,canvas.height));
                     ctx.font = "bold 10px sans-serif";
