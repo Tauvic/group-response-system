@@ -63,8 +63,8 @@
           var vs = stream.getTracks()[0].getSettings()
           console.info('width='+vs.width);
 
-          //video.width  = stream.width;
-          //video.height = stream.height; 
+          video.width  = vs.width;
+          video.height = vs.height; 
 
           canvas.width  = vs.width;
           canvas.height = vs.height;
@@ -199,7 +199,7 @@
     <div style="margin: 10px;"><strong>-= Classroom Response System =-</strong></div>
     <div id="res"></div>
     <video id="video" autoplay="true" style="display:none;"></video>
-    <canvas id="canvas" style="width:640px; height:480px;"></canvas>
+    <canvas id="canvas"></canvas>
     <div id="result" class="list">results</div>
   </center>
 
